@@ -44,8 +44,8 @@ class MomoService
         $orderInfo = $order->id;
         $amount = $order->grand_total;
         $orderId = $order->id;
-        $redirectUrl = 'http://127.0.0.1:8000/' . $order->id . '/success';
-        $ipnUrl = 'https://mackerel-related-moccasin.ngrok-free.app/' . $order->id . '/webhook';
+        $redirectUrl = config('app.url') . '/' . $order->id . '/success';
+        $ipnUrl = config('app.url') . '/' . $order->id . '/webhook';
         $extraData = json_encode($order->extras);
 
         if ($order) {
