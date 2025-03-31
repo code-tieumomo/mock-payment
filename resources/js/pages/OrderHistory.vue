@@ -34,6 +34,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex flex-col gap-4 p-4">
             <div
+                v-if="orders.length > 0"
                 v-for="order in orders"
                 :key="order.id"
                 class="relative overflow-hidden rounded-xl border border-sidebar-border/70 p-4 dark:border-sidebar-border text-sm"
@@ -157,6 +158,12 @@ const breadcrumbs: BreadcrumbItem[] = [
                             </div>
                         </CollapsibleContent>
                     </Collapsible>
+                </div>
+            </div>
+            <div v-else>
+                <div class="flex h-full items-center justify-center gap-2 rounded-xl border border-sidebar-border/70 p-4 dark:border-sidebar-border">
+                    <Icon icon="tabler:exclamation-circle" class="text-orange-500" />
+                    <p class="text-sm">No orders found.</p>
                 </div>
             </div>
         </div>
